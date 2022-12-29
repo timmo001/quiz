@@ -2,7 +2,7 @@
 
 A Quiz website, written with Astro.
 
-![Logo](https://raw.githubusercontent.com/timmo001/quiz/master/resources/quiz-rect.png)
+![Logo](https://github.com/timmo001/quiz/raw/master/src/icons/logomark.svg)
 
 ## Site
 
