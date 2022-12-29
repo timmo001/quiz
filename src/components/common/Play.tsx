@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 import type { OpenTDBQuestion, OpenTDBResponse } from "~/types/opentdb";
 
