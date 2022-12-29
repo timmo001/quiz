@@ -70,9 +70,11 @@ import ThemeSwitcher from "~/components/theme-switcher.astro";
     header.classList.toggle("fixed-header", page.scrollTop > 40);
   });
 
-  menu.addEventListener("click", (event) => {
-    if ((event.target as HTMLElement).tagName === "A") closeMenu();
-  });
+  if (menu) {
+    menu.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).tagName === "A") closeMenu();
+    });
+  }
 </script>
 
 <!-- https://github.com/withastro/compiler/issues/395 -->
