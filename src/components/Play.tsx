@@ -12,7 +12,11 @@ export default function Play() {
   const [question, setQuestion] = useState<Question>();
 
   function handleNextQuestion(): void {
-    const q = question ? questions[question.id++] : questions[0];
+    if (question && question.id >= questions.length - 1) {
+      console.log("Reached question limit");
+      return;
+    }
+    const q = question ? questions[question.id + 1] : questions[0];
     setQuestion({
       ...q,
       answers: [...q.incorrect_answers, q.correct_answer].sort(
@@ -58,8 +62,17 @@ export default function Play() {
       {question ? (
         <>
           <h2 className="col-span-4 text-center">{question.question}</h2>
-          {question.answers.map((a: string) => (
-            <p className="col-span-4 text-start">{a}</p>
+          {question.answers.map((a: string, id: number) => (
+            <button
+              key={id}
+              className="col-span-4 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded active:animate-ping"
+              onClick={() => {
+                console.log(a);
+                handleNextQuestion();
+              }}
+            >
+              {a}
+            </button>
           ))}
         </>
       ) : (
