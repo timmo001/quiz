@@ -1,19 +1,30 @@
 ---
+import type {
+  OpenTDBCategoriesResponse,
+  OpenTDBTriviaCategory,
+} from "~/types/opentdb";
 import Main from "~/components/main.astro";
+import Start from "~/components/Start.jsx";
+
+// Props
+const { amount, category } = Astro.props;
+
+// Fetch data
+const fetchResponse = await fetch("https://opentdb.com/api_category.php");
+const response = (await fetchResponse.json()) as OpenTDBCategoriesResponse;
+const categories: Array<OpenTDBTriviaCategory> = response.trivia_categories;
 ---
 
 <Main>
   <h1 class="text-center">Quiz</h1>
-  <section class="mt-48 container max-w-md grid grid-cols-1 gap-4">
-    <button
-      class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
-    >
-      Start
-    </button>
-    <button
-      class="bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded"
-    >
-      Something Else
-    </button>
+  <section class="mt-48 container max-w-md grid grid-cols-4 gap-4">
+    <Start
+      client:load
+      categories={categories}
+      defaultOptions={{
+        amount: amount || 10,
+        category,
+      }}
+    />
   </section>
 </Main>
