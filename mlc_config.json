@@ -1,16 +1,13 @@
 {
   "ignorePatterns": [
     {
-      "pattern": "^http://localhost"
-    },
-    {
       "pattern": "^contact@timmo"
     },
     {
-      "pattern": "^https://www.buymeacoffee.com"
+      "pattern": "^timmo.dev"
     },
     {
-      "pattern": "^https://microbadger.com"
+      "pattern": "^github.com/timmo001/quiz/raw/master/src/icons/logomark.svg"
     }
   ],
   "retryOn429": true
