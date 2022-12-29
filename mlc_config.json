@@ -4,10 +4,10 @@
       "pattern": "^contact@timmo"
     },
     {
-      "pattern": "^timmo.dev"
+      "pattern": "https://quiz.timmo.dev"
     },
     {
-      "pattern": "^github.com/timmo001/quiz/raw/master/src/icons/logomark.svg"
+      "pattern": "https://github.com/timmo001/quiz/raw/master/src/icons/logomark.svg"
     }
   ],
   "retryOn429": true
