@@ -130,7 +130,9 @@ export default function Host({ firebaseConfig }: HostProps) {
             </span>
           ))}
         </>
-      ) : null}
+      ) : (
+        <h3 className="col-span-4 text-center">Loading..</h3>
+      )}
     </>
   );
 }
