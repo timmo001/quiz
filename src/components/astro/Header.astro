@@ -18,81 +18,13 @@ import ThemeSwitcher from "~/components/astro/ThemeSwitcher.astro";
   </a>
   <div>
     <div class="flex items-center gap-6">
-      <button
-        id="open-nav-button"
-        type="button"
-        class="btn sm:hidden"
-        aria-label="Navigation"
-      >
-        <Icon pack="mdi" name="menu" class="h-8" />
-      </button>
       <ThemeSwitcher />
-    </div>
-    <div id="menu-modal" class="hidden modal" aria-hidden="true">
-      <div class="fixed inset-0 px-8 py-2 bg-default">
-        <div class="space-y-4" role="dialog" aria-modal="true">
-          <header class="text-right">
-            <button
-              id="close-nav-button"
-              type="button"
-              class="btn"
-              aria-label="Close navigation"
-            >
-              <Icon pack="mdi" name="close" class="h-8" />
-            </button>
-          </header>
-          <div class="flex justify-center">
-            <Icon name="logomark" class="h-16" />
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </header>
 
-<script>
-  import MicroModal from "micromodal";
-
-  const menuModalId = "menu-modal";
-
-  const page = document.documentElement;
-  const header = document.querySelector("#page-header");
-  const menu = document.querySelector(`#${menuModalId} ul`);
-  const openNavButton = document.querySelector("#open-nav-button");
-  const closeNavButton = document.querySelector("#close-nav-button");
-
-  const closeMenu = () => MicroModal.close(menuModalId);
-  const openMenu = () => MicroModal.show(menuModalId, { disableScroll: true });
-
-  closeNavButton.addEventListener("click", closeMenu);
-  openNavButton.addEventListener("click", openMenu);
-
-  document.addEventListener("scroll", () => {
-    header.classList.toggle("fixed-header", page.scrollTop > 40);
-  });
-
-  if (menu) {
-    menu.addEventListener("click", (event) => {
-      if ((event.target as HTMLElement).tagName === "A") closeMenu();
-    });
-  }
-</script>
-
-<!-- https://github.com/withastro/compiler/issues/395 -->
-<!-- <noscript>
-  <style>
-    #open-nav-button {
-      @apply hidden;
-    }
-  </style>
-</noscript> -->
-
 <style>
   .fixed-header {
     @apply shadow-xl;
-  }
-
-  .modal.is-open {
-    @apply block;
   }
 </style>
