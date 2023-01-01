@@ -2,7 +2,7 @@ import { OpenTDBQuestion, OpenTDBResponse } from "~/types/opentdb";
 import { Question } from "~/types/question";
 import { decode } from "./decode";
 
-export async function getQuestions(
+export async function getQuestionsFromOpenTDB(
   amount: number,
   category: number
 ): Promise<Array<Question>> {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "preact/hooks";
-import { useStore } from "@nanostores/preact";
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { Analytics, getAnalytics } from "firebase/analytics";
 import { getAuth, signInAnonymously, UserCredential } from "firebase/auth";
@@ -13,7 +12,6 @@ import {
 } from "firebase/database";
 
 import type { Question } from "~/types/question";
-import { currentQuestion, questions } from "../shared/stores/questionStore";
 
 interface PlayerProps {
   firebaseConfig: FirebaseOptions;
@@ -24,11 +22,11 @@ let firebaseApp: FirebaseApp,
   firebaseDatabase: Database,
   firebaseUser: UserCredential;
 export default function Player({ firebaseConfig }: PlayerProps) {
+  const [currentQuestion, setCurrentQuestion] = useState<Question>();
+  const [questions, setQuestions] = useState<Array<Question>>();
   const [setup, setSetup] = useState<boolean>(false);
-  const $currentQuestion = useStore(currentQuestion);
-  const $questions = useStore(questions);
 
-  async function setupFirebase(): Promise<void> {
+  async function setupApplication(): Promise<void> {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const sessionId = urlSearchParams.get("sessionId");
     const name = urlSearchParams.get("name") || "Anonymous";
@@ -69,32 +67,41 @@ export default function Player({ firebaseConfig }: PlayerProps) {
         const newQuestions = snapshot.val() as Array<Question>;
         if (!newQuestions) return;
         console.log("New questions:", newQuestions);
-        questions.set(newQuestions);
-
-        // Get current question
-        onValue(
-          ref(firebaseDatabase, `/sessions/${sessionId}/currentQuestion`),
-          (snapshot: DataSnapshot) => {
-            const questionId = snapshot.val() as number;
-            if (questionId === null || !newQuestions) return;
-            const newQuestion: Question = newQuestions[questionId];
-            if (!newQuestion) return;
-            console.log("New question:", newQuestion.question);
-            currentQuestion.set(newQuestion);
-          }
-        );
+        setQuestions(newQuestions);
       }
     );
-  }
 
-  async function setupApplication(): Promise<void> {
     setSetup(true);
-    await setupFirebase();
   }
 
   useEffect(() => {
-    if (!setup) setupApplication();
+    if (setup) return;
+    setupApplication();
   }, [setup]);
+
+  useEffect(() => {
+    if (!setup || !questions) return;
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const sessionId = urlSearchParams.get("sessionId");
+
+    // Get current question
+    const unsubCurrentQuestion = onValue(
+      ref(firebaseDatabase, `/sessions/${sessionId}/currentQuestion`),
+      (snapshot: DataSnapshot) => {
+        const questionId = snapshot.val() as number;
+        if (questionId === null || !questions) return;
+        const newQuestion: Question = questions[questionId];
+        if (!newQuestion) return;
+        console.log("New question:", newQuestion.question);
+        setCurrentQuestion(newQuestion);
+      }
+    );
+
+    return () => {
+      unsubCurrentQuestion();
+    };
+  }, [setup, questions, currentQuestion]);
 
   function handleAnswer(answer: string): void {
     console.log("Answer:", answer);
@@ -103,7 +110,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     const sessionId = urlSearchParams.get("sessionId");
 
     const updates = {
-      [`/sessions/${sessionId}/answers/${$currentQuestion.id}/${firebaseUser.user.uid}`]:
+      [`/sessions/${sessionId}/answers/${currentQuestion.id}/${firebaseUser.user.uid}`]:
         answer,
     };
     update(ref(firebaseDatabase), updates);
@@ -111,12 +118,10 @@ export default function Player({ firebaseConfig }: PlayerProps) {
 
   return (
     <>
-      {setup && $currentQuestion ? (
+      {setup && currentQuestion ? (
         <>
-          <h3 className="col-span-4 text-center">
-            {$currentQuestion.question}
-          </h3>
-          {$currentQuestion.answers.map((a: string, id: number) => (
+          <h3 className="col-span-4 text-center">{currentQuestion.question}</h3>
+          {currentQuestion.answers.map((a: string, id: number) => (
             <button
               key={id}
               className="col-span-4 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full active:animate-ping"
