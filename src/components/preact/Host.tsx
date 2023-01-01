@@ -12,6 +12,7 @@ import {
   update,
 } from "firebase/database";
 import { v4 as uuidv4 } from "uuid";
+import QRCode from "qrcode-svg";
 
 import { currentQuestion, questions } from "../shared/questionStore";
 import { getQuestions } from "../shared/getQuestions";
@@ -111,6 +112,22 @@ export default function Host({ firebaseConfig }: HostProps) {
   async function setupApplication(): Promise<void> {
     setSetup(true);
     await setupFirebase();
+
+    // Generate QR code
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const url = `${
+      window.location.origin
+    }/play/player?sessionId=${urlSearchParams.get("sessionId")}`;
+    console.log("Player URL:", url);
+    const qrcode = new QRCode({
+      content: url,
+      height: 180,
+      width: 180,
+      background: "transparent",
+      color: "#FFFFFF",
+    });
+    const container = document.getElementById("qrcode");
+    container.innerHTML = qrcode.svg();
   }
 
   useEffect(() => {
@@ -133,6 +150,7 @@ export default function Host({ firebaseConfig }: HostProps) {
       ) : (
         <h3 className="col-span-4 text-center">Loading..</h3>
       )}
+      <div className="fixed bottom-0 right-0" id="qrcode"></div>
     </>
   );
 }
