@@ -18,13 +18,6 @@ const categories: Array<OpenTDBTriviaCategory> = response.trivia_categories;
 <Main>
   <h1 class="text-center">Quiz</h1>
   <section class="mt-48 container max-w-md grid grid-cols-4 gap-4">
-    <Start
-      client:load
-      categories={categories}
-      defaultOptions={{
-        amount: amount || 10,
-        category,
-      }}
-    />
+    <Start client:load categories={categories} />
   </section>
 </Main>
