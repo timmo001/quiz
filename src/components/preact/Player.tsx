@@ -52,6 +52,12 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     console.log("User:", firebaseUser.user.uid);
     firebaseDatabase = getDatabase(firebaseApp);
 
+    const updates = {
+      [`/sessions/${sessionId}/players`]: [firebaseUser.user.uid],
+    };
+
+    await update(ref(firebaseDatabase), updates);
+
     // Get questions
     onValue(
       ref(firebaseDatabase, `/sessions/${sessionId}/questions`),
