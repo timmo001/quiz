@@ -215,6 +215,10 @@ export default function Host({ firebaseConfig }: HostProps) {
         setAnswers(newAnswers);
         // Check if all players have answered
         if (Object.keys(newAnswers).length === Object.keys(players).length) {
+          if (currentQuestion.id + 1 === questions.length) {
+            console.log("All questions have been answered. Game over.");
+            return;
+          }
           console.log("All players have answered. Next question.");
           const updates = {
             [`/sessions/${sessionId}/currentQuestion`]:
