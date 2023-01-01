@@ -115,7 +115,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
           {$currentQuestion.answers.map((a: string, id: number) => (
             <button
               key={id}
-              className="col-span-4 bg-primary hover:bg-secondary text-white font-bold py-2 px-4 rounded active:animate-ping"
+              className="col-span-4 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full active:animate-ping"
               onClick={() => handleAnswer(a)}
             >
               {a}
