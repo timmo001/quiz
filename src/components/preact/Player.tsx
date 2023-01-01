@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useMemo, useState } from "preact/hooks";
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { Analytics, getAnalytics } from "firebase/analytics";
 import { getAuth, signInAnonymously, UserCredential } from "firebase/auth";
@@ -146,6 +146,14 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     update(ref(firebaseDatabase), updates);
   }
 
+  const answer = useMemo<string | undefined>(
+    () =>
+      answers && firebaseUser?.user.uid
+        ? answers[firebaseUser?.user.uid]
+        : undefined,
+    [answers]
+  );
+
   return (
     <>
       {setup && currentQuestion ? (
@@ -154,8 +162,14 @@ export default function Player({ firebaseConfig }: PlayerProps) {
           {currentQuestion.answers.map((a: string, id: number) => (
             <button
               key={id}
-              disabled={Object.keys(answers).includes(firebaseUser?.user.uid)}
-              className="col-span-4 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full active:animate-ping"
+              disabled={answer !== undefined}
+              className={`col-span-4 ${
+                answer === a
+                  ? "bg-primary"
+                  : answer !== undefined
+                  ? "bg-violet-600/40"
+                  : "bg-primary hover:bg-secondary active:animate-ping"
+              } text-white py-2 px-4 rounded-full`}
               onClick={() => handleAnswer(a)}
             >
               {a}
