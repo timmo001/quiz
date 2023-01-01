@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useMemo, useState } from "preact/hooks";
 import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { Analytics, getAnalytics } from "firebase/analytics";
 import { getAuth, signInAnonymously, UserCredential } from "firebase/auth";
@@ -204,7 +204,7 @@ export default function Host({ firebaseConfig }: HostProps) {
         firebaseDatabase,
         `/sessions/${sessionId}/answers/${currentQuestion.id}`
       ),
-      async (snapshot: DataSnapshot) => {
+      (snapshot: DataSnapshot) => {
         const newAnswers = snapshot.val() as Answers;
         if (!newAnswers) return;
         console.log(
@@ -219,13 +219,16 @@ export default function Host({ firebaseConfig }: HostProps) {
             console.log("All questions have been answered. Game over.");
             return;
           }
-          console.log("All players have answered. Next question.");
-          const updates = {
-            [`/sessions/${sessionId}/currentQuestion`]:
-              questions[currentQuestion.id + 1].id,
-          };
+          console.log("All players have answered");
+          setTimeout(async () => {
+            console.log("Next question..");
+            const updates = {
+              [`/sessions/${sessionId}/currentQuestion`]:
+                questions[currentQuestion.id + 1].id,
+            };
 
-          await update(ref(firebaseDatabase), updates);
+            await update(ref(firebaseDatabase), updates);
+          }, 4000);
         }
       }
     );
@@ -235,13 +238,24 @@ export default function Host({ firebaseConfig }: HostProps) {
     };
   }, [setup, currentQuestion, players]);
 
+  const allAnswered = useMemo<boolean>(() => {
+    if (!players || !currentQuestion || !answers) return false;
+    return Object.keys(answers).length === Object.keys(players).length;
+  }, [players, currentQuestion, answers]);
+
   return (
     <>
       {currentQuestion ? (
         <>
           <h2 className="col-span-4 text-center">{currentQuestion.question}</h2>
           {currentQuestion.answers.map((a: string, id: number) => (
-            <span className="col-span-4 text-justify">
+            <span
+              className={`col-span-4 text-justify ${
+                allAnswered && a === currentQuestion.answer
+                  ? "text-green-500"
+                  : "text-current"
+              }`}
+            >
               {id + 1}: {a}
             </span>
           ))}
@@ -249,13 +263,12 @@ export default function Host({ firebaseConfig }: HostProps) {
       ) : (
         <h3 className="col-span-4 text-center">Loading..</h3>
       )}
-      {players ? (
-        <div className="fixed bottom-4 left-4">
-          <span>
-            Answers: {Object.keys(answers).length}/{Object.keys(players).length}
-          </span>
-        </div>
-      ) : null}
+      <div className="fixed bottom-4 left-4">
+        <span>
+          Answers: {answers ? Object.keys(answers).length : 0}/
+          {players ? Object.keys(players).length : 0}
+        </span>
+      </div>
       <div className="fixed bottom-4 right-4" id="qrcode"></div>
     </>
   );
