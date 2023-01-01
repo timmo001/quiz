@@ -123,6 +123,7 @@ export default function Host({ firebaseConfig }: HostProps) {
       content: url,
       height: 180,
       width: 180,
+      padding: 0,
       background: "transparent",
       color: "#FFFFFF",
     });
@@ -150,7 +151,7 @@ export default function Host({ firebaseConfig }: HostProps) {
       ) : (
         <h3 className="col-span-4 text-center">Loading..</h3>
       )}
-      <div className="fixed bottom-0 right-0" id="qrcode"></div>
+      <div className="fixed bottom-4 right-4" id="qrcode"></div>
     </>
   );
 }
