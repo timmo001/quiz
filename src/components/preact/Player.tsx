@@ -11,6 +11,7 @@ import {
   update,
 } from "firebase/database";
 
+import type { Answers } from "~/types/answers";
 import type { Question } from "~/types/question";
 
 interface PlayerProps {
@@ -22,6 +23,7 @@ let firebaseApp: FirebaseApp,
   firebaseDatabase: Database,
   firebaseUser: UserCredential;
 export default function Player({ firebaseConfig }: PlayerProps) {
+  const [answers, setAnswers] = useState<Answers>();
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
   const [questions, setQuestions] = useState<Array<Question>>();
   const [setup, setSetup] = useState<boolean>(false);
@@ -95,6 +97,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
         if (!newQuestion) return;
         console.log("New question:", newQuestion.question);
         setCurrentQuestion(newQuestion);
+        setAnswers({});
       }
     );
 
@@ -102,6 +105,33 @@ export default function Player({ firebaseConfig }: PlayerProps) {
       unsubCurrentQuestion();
     };
   }, [setup, questions, currentQuestion]);
+
+  useEffect(() => {
+    if (!setup || !currentQuestion) return;
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const sessionId = urlSearchParams.get("sessionId");
+
+    if (!sessionId) return;
+
+    // Get answers
+    const unsubAnswers = onValue(
+      ref(
+        firebaseDatabase,
+        `/sessions/${sessionId}/answers/${currentQuestion.id}`
+      ),
+      async (snapshot: DataSnapshot) => {
+        const newAnswers = snapshot.val() as Answers;
+        if (!newAnswers) return;
+        console.log("New answers:", newAnswers);
+        setAnswers(newAnswers);
+      }
+    );
+
+    return () => {
+      unsubAnswers();
+    };
+  }, [setup, currentQuestion]);
 
   function handleAnswer(answer: string): void {
     console.log("Answer:", answer);
@@ -124,6 +154,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
           {currentQuestion.answers.map((a: string, id: number) => (
             <button
               key={id}
+              disabled={Object.keys(answers).includes(firebaseUser?.user.uid)}
               className="col-span-4 bg-primary hover:bg-secondary text-white py-2 px-4 rounded-full active:animate-ping"
               onClick={() => handleAnswer(a)}
             >

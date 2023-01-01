@@ -13,7 +13,7 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import QRCode from "qrcode-svg";
 
-import type { Answer } from "~/types/answer";
+import type { Answers } from "~/types/answers";
 import type { Players } from "~/types/player";
 import type { Question } from "~/types/question";
 import { getQuestionsFromOpenTDB } from "../shared/getQuestions";
@@ -27,7 +27,7 @@ let firebaseApp: FirebaseApp,
   firebaseDatabase: Database,
   firebaseUser: UserCredential;
 export default function Host({ firebaseConfig }: HostProps) {
-  const [answers, setAnswers] = useState<Array<Answer>>([]);
+  const [answers, setAnswers] = useState<Answers>();
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
   const [players, setPlayers] = useState<Players>();
   const [questions, setQuestions] = useState<Array<Question>>();
@@ -159,7 +159,7 @@ export default function Host({ firebaseConfig }: HostProps) {
         if (!newQuestion) return;
         console.log("New question:", newQuestion.question);
         setCurrentQuestion(newQuestion);
-        setAnswers([]);
+        setAnswers({});
       }
     );
 
@@ -205,7 +205,7 @@ export default function Host({ firebaseConfig }: HostProps) {
         `/sessions/${sessionId}/answers/${currentQuestion.id}`
       ),
       async (snapshot: DataSnapshot) => {
-        const newAnswers = snapshot.val() as Array<Answer>;
+        const newAnswers = snapshot.val() as Answers;
         if (!newAnswers) return;
         console.log(
           "New answers:",
