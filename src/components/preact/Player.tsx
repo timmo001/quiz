@@ -12,8 +12,8 @@ import {
   update,
 } from "firebase/database";
 
-import { currentQuestion, questions } from "../shared/questionStore";
-import { Question } from "~/types/question";
+import type { Question } from "~/types/question";
+import { currentQuestion, questions } from "../shared/stores/questionStore";
 
 interface PlayerProps {
   firebaseConfig: FirebaseOptions;
