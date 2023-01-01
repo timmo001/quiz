@@ -32,6 +32,7 @@
     "@astrojs/preact": "^1.2.0",
     "@fontsource/inter": "4.5.14",
     "@nanostores/preact": "0.3.1",
+    "firebase": "9.15.0",
     "micromodal": "0.4.10",
     "nanostores": "0.7.1",
     "preact": "10.11.3"

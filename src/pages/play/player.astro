@@ -1,10 +1,11 @@
 ---
+import { firebaseConfig } from "~/components/shared/firebase";
 import Main from "~/components/astro/Main.astro";
 import Player from "~/components/preact/Player";
 ---
 
 <Main>
   <section class="mt-8 container grid grid-cols-1 gap-4">
-    <Player client:load />
+    <Player client:load firebaseConfig={firebaseConfig} />
   </section>
 </Main>

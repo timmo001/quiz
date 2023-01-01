@@ -1,11 +1,24 @@
+import { useEffect, useState } from "preact/hooks";
 import { useStore } from "@nanostores/preact";
-import { useEffect } from "preact/hooks";
+import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
+import { Analytics, getAnalytics } from "firebase/analytics";
+import { getAuth, signInAnonymously, UserCredential } from "firebase/auth";
+import { Database, getDatabase, ref, update } from "firebase/database";
 
 import { currentQuestion, questions } from "../shared/questionStore";
 import { getQuestions } from "../shared/getQuestions";
 import { Question } from "~/types/question";
 
-export default function Host() {
+interface HostProps {
+  firebaseConfig: FirebaseOptions;
+}
+
+let firebaseApp: FirebaseApp,
+  firebaseAnalytics: Analytics,
+  firebaseDatabase: Database,
+  firebaseUser: UserCredential;
+export default function Host({ firebaseConfig }: HostProps) {
+  const [setup, setSetup] = useState<boolean>(false);
   const $currentQuestion = useStore(currentQuestion);
   const $questions = useStore(questions);
 
@@ -17,11 +30,41 @@ export default function Host() {
     const newQuestions: Array<Question> = await getQuestions(amount, category);
     questions.set(newQuestions);
     currentQuestion.set(newQuestions[0]);
+
+    const updates = {
+      [`/questions/${firebaseUser.user.uid}`]: newQuestions,
+      [`/currentQuestion/${firebaseUser.user.uid}`]: newQuestions[0],
+    };
+
+    await update(ref(firebaseDatabase), updates);
+  }
+
+  async function setupFirebase(): Promise<void> {
+    firebaseApp = initializeApp(firebaseConfig);
+    firebaseAnalytics = getAnalytics(firebaseApp);
+
+    const auth = getAuth();
+    try {
+      firebaseUser = await signInAnonymously(auth);
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode, errorMessage);
+      return;
+    }
+    console.log("User:", firebaseUser.user.uid);
+    firebaseDatabase = getDatabase(firebaseApp);
+  }
+
+  async function setupApplication(): Promise<void> {
+    setSetup(true);
+    await setupFirebase();
+    await getData();
   }
 
   useEffect(() => {
-    if (!$questions) getData();
-  }, [$questions]);
+    if (!setup) setupApplication();
+  }, [setup]);
 
   return (
     <>
