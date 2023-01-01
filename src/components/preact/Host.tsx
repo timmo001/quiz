@@ -126,9 +126,15 @@ export default function Host({ firebaseConfig }: HostProps) {
       padding: 0,
       background: "transparent",
       color: "#FFFFFF",
+      join: true,
     });
     const container = document.getElementById("qrcode");
-    container.innerHTML = qrcode.svg();
+    const anchor = document.createElement("a");
+    anchor.setAttribute("href", url);
+    anchor.setAttribute("target", "_blank");
+    anchor.setAttribute("rel", "noopener noreferrer");
+    anchor.innerHTML = qrcode.svg();
+    container.appendChild(anchor);
   }
 
   useEffect(() => {
