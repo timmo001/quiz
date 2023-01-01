@@ -119,7 +119,7 @@ export default function Host({ firebaseConfig }: HostProps) {
 
   return (
     <>
-      {$questions && $currentQuestion ? (
+      {setup && $currentQuestion ? (
         <>
           <h2 className="col-span-4 text-center">
             {$currentQuestion.question}

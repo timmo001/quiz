@@ -66,7 +66,6 @@ export default function Player({ firebaseConfig }: PlayerProps) {
           ref(firebaseDatabase, `/sessions/${sessionId}/currentQuestion`),
           (snapshot: DataSnapshot) => {
             const questionId = snapshot.val() as number;
-            console.log("New q:", questionId, newQuestions);
             if (questionId === null || !newQuestions) return;
             const newQuestion: Question = newQuestions[questionId];
             if (!newQuestion) return;
