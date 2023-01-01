@@ -1,6 +1,6 @@
 # Quiz
 
-A Quiz, written with Astro.
+A Quiz, written with Astro and Preact.
 
 ![Logo](https://github.com/timmo001/quiz/raw/master/src/icons/logomark.svg)
 
