@@ -1,6 +1,6 @@
 # Quiz
 
-A Quiz website, written with Astro.
+A Quiz, written with Astro.
 
 ![Logo](https://github.com/timmo001/quiz/raw/master/src/icons/logomark.svg)
 
