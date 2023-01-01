@@ -258,6 +258,11 @@ export default function Host({ firebaseConfig }: HostProps) {
     };
   }, [status, currentQuestion, players]);
 
+  const questionNumber = useMemo<number>(() => {
+    if (!currentQuestion || !questions) return 0;
+    return questions.findIndex((q) => q.id === currentQuestion.id) + 1;
+  }, [currentQuestion, questions]);
+
   const allAnswered = useMemo<boolean>(() => {
     if (!players || !currentQuestion || !answers) return false;
     return Object.keys(answers).length === Object.keys(players).length;
@@ -276,7 +281,7 @@ export default function Host({ firebaseConfig }: HostProps) {
           {currentQuestion ? (
             <>
               <h2 className="col-span-4 text-center">
-                {currentQuestion.question}
+                Q{questionNumber}: {currentQuestion.question}
               </h2>
               {currentQuestion.answers.map((a: string, id: number) => (
                 <span

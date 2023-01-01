@@ -166,6 +166,11 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     [answers]
   );
 
+  const questionNumber = useMemo<number>(() => {
+    if (!currentQuestion || !questions) return 0;
+    return questions.findIndex((q) => q.id === currentQuestion.id) + 1;
+  }, [currentQuestion, questions]);
+
   return (
     <>
       {!setup || status === Status.Unset ? (
@@ -179,7 +184,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
           {currentQuestion ? (
             <>
               <h3 className="col-span-4 text-center">
-                {currentQuestion.question}
+                Q{questionNumber}: {currentQuestion.question}
               </h3>
               {currentQuestion.answers.map((a: string, id: number) => (
                 <button
