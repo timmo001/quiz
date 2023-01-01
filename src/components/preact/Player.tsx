@@ -53,7 +53,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     firebaseDatabase = getDatabase(firebaseApp);
 
     const updates = {
-      [`/sessions/${sessionId}/players`]: [firebaseUser.user.uid],
+      [`/sessions/${sessionId}/players/${firebaseUser.user.uid}`]: 1,
     };
 
     await update(ref(firebaseDatabase), updates);
