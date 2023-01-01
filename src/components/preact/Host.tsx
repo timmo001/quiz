@@ -16,6 +16,7 @@ import QRCode from "qrcode-svg";
 import type { Answers } from "~/types/answers";
 import type { Players } from "~/types/player";
 import type { Question } from "~/types/question";
+import { Status } from "~/types/status";
 import { getQuestionsFromOpenTDB } from "../shared/getQuestions";
 
 interface HostProps {
@@ -31,7 +32,7 @@ export default function Host({ firebaseConfig }: HostProps) {
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
   const [players, setPlayers] = useState<Players>();
   const [questions, setQuestions] = useState<Array<Question>>();
-  const [setup, setSetup] = useState<boolean>(false);
+  const [status, setStatus] = useState<Status>(Status.Unset);
 
   async function getQuestions(): Promise<void> {
     if (questions) return;
@@ -53,8 +54,9 @@ export default function Host({ firebaseConfig }: HostProps) {
     setCurrentQuestion(newQuestions[0]);
 
     const updates = {
-      [`/sessions/${sessionId}/questions`]: newQuestions,
       [`/sessions/${sessionId}/currentQuestion`]: newQuestions[0].id,
+      [`/sessions/${sessionId}/questions`]: newQuestions,
+      [`/sessions/${sessionId}/status`]: Status.Active,
     };
 
     await update(ref(firebaseDatabase), updates);
@@ -90,6 +92,16 @@ export default function Host({ firebaseConfig }: HostProps) {
     console.log("User:", firebaseUser.user.uid);
     firebaseDatabase = getDatabase(firebaseApp);
 
+    // Get status
+    onValue(
+      ref(firebaseDatabase, `/sessions/${sessionId}/status`),
+      (snapshot: DataSnapshot) => {
+        const status = snapshot.val() as Status;
+        console.log("New status:", status);
+        setStatus(status);
+      }
+    );
+
     // Generate QR code
     const url = `${window.location.origin}/play/player?sessionId=${sessionId}`;
     console.log("Player URL:", url);
@@ -109,25 +121,25 @@ export default function Host({ firebaseConfig }: HostProps) {
     anchor.setAttribute("rel", "noopener noreferrer");
     anchor.innerHTML = qrcode.svg();
     container.appendChild(anchor);
-
-    setSetup(true);
   }
 
   useEffect(() => {
-    if (setup) return;
+    if (status !== Status.Unset) return;
     setupApplication();
-  }, [setup]);
+  }, [status]);
 
   useEffect(() => {
-    if (!setup || questions) return;
+    if (status === Status.Unset || questions) return;
 
     const urlSearchParams = new URLSearchParams(window.location.search);
     const sessionId = urlSearchParams.get("sessionId");
 
+    if (!sessionId) return;
+
     // Get questions
     const unsubQuestions = onValue(
       ref(firebaseDatabase, `/sessions/${sessionId}/questions`),
-      (snapshot: DataSnapshot) => {
+      async (snapshot: DataSnapshot) => {
         const newQuestions = snapshot.val() as Array<Question>;
         console.log("New questions:", newQuestions);
         if (!newQuestions) {
@@ -141,18 +153,20 @@ export default function Host({ firebaseConfig }: HostProps) {
     return () => {
       unsubQuestions();
     };
-  }, [setup, questions]);
+  }, [status, questions]);
 
   useEffect(() => {
-    if (!setup || !questions) return;
+    if (status === Status.Unset || !questions) return;
 
     const urlSearchParams = new URLSearchParams(window.location.search);
     const sessionId = urlSearchParams.get("sessionId");
 
+    if (!sessionId) return;
+
     // Get current question
     const unsubCurrentQuestion = onValue(
       ref(firebaseDatabase, `/sessions/${sessionId}/currentQuestion`),
-      (snapshot: DataSnapshot) => {
+      async (snapshot: DataSnapshot) => {
         const questionId = snapshot.val() as number;
         if (questionId === null || !questions) return;
         const newQuestion: Question = questions[questionId];
@@ -166,13 +180,15 @@ export default function Host({ firebaseConfig }: HostProps) {
     return () => {
       unsubCurrentQuestion();
     };
-  }, [setup, questions, currentQuestion]);
+  }, [status, questions]);
 
   useEffect(() => {
-    if (!setup || !currentQuestion || !questions) return;
+    if (status === Status.Unset || !currentQuestion || !questions) return;
 
     const urlSearchParams = new URLSearchParams(window.location.search);
     const sessionId = urlSearchParams.get("sessionId");
+
+    if (!sessionId) return;
 
     // Get players
     const unsubPlayers = onValue(
@@ -188,10 +204,10 @@ export default function Host({ firebaseConfig }: HostProps) {
     return () => {
       unsubPlayers();
     };
-  }, [setup, currentQuestion, questions]);
+  }, [status, currentQuestion, questions]);
 
   useEffect(() => {
-    if (!setup || !currentQuestion || !players) return;
+    if (status === Status.Unset || !currentQuestion || !players) return;
 
     const urlSearchParams = new URLSearchParams(window.location.search);
     const sessionId = urlSearchParams.get("sessionId");
@@ -204,7 +220,7 @@ export default function Host({ firebaseConfig }: HostProps) {
         firebaseDatabase,
         `/sessions/${sessionId}/answers/${currentQuestion.id}`
       ),
-      (snapshot: DataSnapshot) => {
+      async (snapshot: DataSnapshot) => {
         const newAnswers = snapshot.val() as Answers;
         if (!newAnswers) return;
         console.log(
@@ -215,18 +231,22 @@ export default function Host({ firebaseConfig }: HostProps) {
         setAnswers(newAnswers);
         // Check if all players have answered
         if (Object.keys(newAnswers).length === Object.keys(players).length) {
-          if (currentQuestion.id + 1 === questions.length) {
-            console.log("All questions have been answered. Game over.");
-            return;
-          }
           console.log("All players have answered");
           setTimeout(async () => {
-            console.log("Next question..");
+            if (currentQuestion.id + 1 >= questions.length) {
+              console.log("All questions have been answered. Game over.");
+              const updates = {
+                [`/sessions/${sessionId}/status`]: Status.Finished,
+              };
+              await update(ref(firebaseDatabase), updates);
+              return;
+            }
+
+            console.log("Next question");
             const updates = {
               [`/sessions/${sessionId}/currentQuestion`]:
                 questions[currentQuestion.id + 1].id,
             };
-
             await update(ref(firebaseDatabase), updates);
           }, 4000);
         }
@@ -236,7 +256,7 @@ export default function Host({ firebaseConfig }: HostProps) {
     return () => {
       unsubAnswers();
     };
-  }, [setup, currentQuestion, players]);
+  }, [status, currentQuestion, players]);
 
   const allAnswered = useMemo<boolean>(() => {
     if (!players || !currentQuestion || !answers) return false;
@@ -245,31 +265,48 @@ export default function Host({ firebaseConfig }: HostProps) {
 
   return (
     <>
-      {currentQuestion ? (
+      {status === Status.Unset ? (
+        <h2 className="col-span-4 text-center">Loading...</h2>
+      ) : status === Status.Inactive ? (
+        <h2 className="col-span-4 text-center">Session Expired!</h2>
+      ) : status === Status.Setup ? (
+        <h2 className="col-span-4 text-center">Loading...</h2>
+      ) : status === Status.Active ? (
         <>
-          <h2 className="col-span-4 text-center">{currentQuestion.question}</h2>
-          {currentQuestion.answers.map((a: string, id: number) => (
-            <span
-              className={`col-span-4 text-justify ${
-                allAnswered && a === currentQuestion.answer
-                  ? "text-green-500"
-                  : "text-current"
-              }`}
-            >
-              {id + 1}: {a}
+          {currentQuestion ? (
+            <>
+              <h2 className="col-span-4 text-center">
+                {currentQuestion.question}
+              </h2>
+              {currentQuestion.answers.map((a: string, id: number) => (
+                <span
+                  className={`col-span-4 text-justify ${
+                    allAnswered && a === currentQuestion.answer
+                      ? "text-green-500"
+                      : "text-current"
+                  }`}
+                >
+                  {id + 1}: {a}
+                </span>
+              ))}
+            </>
+          ) : (
+            <h3 className="col-span-4 text-center">Loading..</h3>
+          )}
+          <div className="fixed bottom-4 left-4">
+            <span>
+              Answers: {answers ? Object.keys(answers).length : 0}/
+              {players ? Object.keys(players).length : 0}
             </span>
-          ))}
+          </div>
         </>
-      ) : (
-        <h3 className="col-span-4 text-center">Loading..</h3>
-      )}
-      <div className="fixed bottom-4 left-4">
-        <span>
-          Answers: {answers ? Object.keys(answers).length : 0}/
-          {players ? Object.keys(players).length : 0}
-        </span>
-      </div>
-      <div className="fixed bottom-4 right-4" id="qrcode"></div>
+      ) : status === Status.Finished ? (
+        <h2 className="col-span-4 text-center">Game over!</h2>
+      ) : null}
+
+      {status !== Status.Finished ? (
+        <div className="fixed bottom-4 right-4" id="qrcode"></div>
+      ) : null}
     </>
   );
 }

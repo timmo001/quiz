@@ -13,6 +13,7 @@ import {
 
 import type { Answers } from "~/types/answers";
 import type { Question } from "~/types/question";
+import { Status } from "~/types/status";
 
 interface PlayerProps {
   firebaseConfig: FirebaseOptions;
@@ -27,6 +28,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
   const [questions, setQuestions] = useState<Array<Question>>();
   const [setup, setSetup] = useState<boolean>(false);
+  const [status, setStatus] = useState<Status>(Status.Unset);
 
   async function setupApplication(): Promise<void> {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -52,6 +54,16 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     }
     console.log("User:", firebaseUser.user.uid);
     firebaseDatabase = getDatabase(firebaseApp);
+
+    // Get status
+    onValue(
+      ref(firebaseDatabase, `/sessions/${sessionId}/status`),
+      (snapshot: DataSnapshot) => {
+        const status = snapshot.val() as Status;
+        console.log("New status:", status);
+        setStatus(status);
+      }
+    );
 
     const updates = {
       [`/sessions/${sessionId}/players/${firebaseUser.user.uid}`]: {
@@ -156,29 +168,43 @@ export default function Player({ firebaseConfig }: PlayerProps) {
 
   return (
     <>
-      {setup && currentQuestion ? (
+      {!setup || status === Status.Unset ? (
+        <h2 className="col-span-4 text-center">Loading...</h2>
+      ) : status === Status.Inactive ? (
+        <h2 className="col-span-4 text-center">Session Expired!</h2>
+      ) : status === Status.Setup ? (
+        <h2 className="col-span-4 text-center">Loading...</h2>
+      ) : status === Status.Active ? (
         <>
-          <h3 className="col-span-4 text-center">{currentQuestion.question}</h3>
-          {currentQuestion.answers.map((a: string, id: number) => (
-            <button
-              key={id}
-              disabled={answer !== undefined}
-              className={`col-span-4 ${
-                answer === a
-                  ? "bg-primary"
-                  : answer !== undefined
-                  ? "bg-violet-600/40"
-                  : "bg-primary hover:bg-secondary active:animate-ping"
-              } text-white py-2 px-4 rounded-full`}
-              onClick={() => handleAnswer(a)}
-            >
-              {a}
-            </button>
-          ))}
+          {currentQuestion ? (
+            <>
+              <h3 className="col-span-4 text-center">
+                {currentQuestion.question}
+              </h3>
+              {currentQuestion.answers.map((a: string, id: number) => (
+                <button
+                  key={id}
+                  disabled={answer !== undefined}
+                  className={`col-span-4 ${
+                    answer === a
+                      ? "bg-primary"
+                      : answer !== undefined
+                      ? "bg-violet-600/40"
+                      : "bg-primary hover:bg-secondary active:animate-ping"
+                  } text-white py-2 px-4 rounded-full`}
+                  onClick={() => handleAnswer(a)}
+                >
+                  {a}
+                </button>
+              ))}
+            </>
+          ) : (
+            <h3 className="col-span-4 text-center">Loading..</h3>
+          )}
         </>
-      ) : (
-        <h3 className="col-span-4 text-center">Loading..</h3>
-      )}
+      ) : status === Status.Finished ? (
+        <h2 className="col-span-4 text-center">Game over!</h2>
+      ) : null}
     </>
   );
 }
