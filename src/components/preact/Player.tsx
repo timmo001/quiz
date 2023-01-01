@@ -31,6 +31,7 @@ export default function Player({ firebaseConfig }: PlayerProps) {
   async function setupFirebase(): Promise<void> {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const sessionId = urlSearchParams.get("sessionId");
+    const name = urlSearchParams.get("name") || "Anonymous";
 
     if (!sessionId) {
       console.error("No sessionId provided");
@@ -53,7 +54,10 @@ export default function Player({ firebaseConfig }: PlayerProps) {
     firebaseDatabase = getDatabase(firebaseApp);
 
     const updates = {
-      [`/sessions/${sessionId}/players/${firebaseUser.user.uid}`]: 1,
+      [`/sessions/${sessionId}/players/${firebaseUser.user.uid}`]: {
+        id: firebaseUser.user.uid,
+        name,
+      },
     };
 
     await update(ref(firebaseDatabase), updates);
