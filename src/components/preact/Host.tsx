@@ -14,11 +14,12 @@ import { v4 as uuidv4 } from "uuid";
 import QRCode from "qrcode-svg";
 
 import type { Answers } from "~/types/answers";
-import type { Players } from "~/types/player";
+import type { Player, Players } from "~/types/player";
 import type { Question } from "~/types/question";
 import { getQuestionsFromOpenTDB } from "../shared/getQuestions";
 import { Status } from "~/types/status";
 import { ttsRead } from "../shared/tts";
+import { playAudio } from "../shared/audio";
 
 interface HostProps {
   firebaseConfig: FirebaseOptions;
@@ -236,6 +237,7 @@ export default function Host({ firebaseConfig, ttsAPIKey }: HostProps) {
           `${Object.keys(newAnswers).length}/${Object.keys(players).length}`,
           newAnswers
         );
+        playAudio("service-bell.mp3");
         setAnswers(newAnswers);
         // Check if all players have answered
         if (Object.keys(newAnswers).length === Object.keys(players).length) {
