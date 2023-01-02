@@ -24,7 +24,6 @@ export function ttsRead(apiKey: string, text: string): void {
       return data.json();
     })
     .then((res) => {
-      console.log(res);
       const audio = new Audio(`data:audio/mp3;base64,${res.audioContent}`);
       audio.play();
     })
