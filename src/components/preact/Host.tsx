@@ -16,18 +16,20 @@ import QRCode from "qrcode-svg";
 import type { Answers } from "~/types/answers";
 import type { Players } from "~/types/player";
 import type { Question } from "~/types/question";
-import { Status } from "~/types/status";
 import { getQuestionsFromOpenTDB } from "../shared/getQuestions";
+import { Status } from "~/types/status";
+import { ttsRead } from "../shared/tts";
 
 interface HostProps {
   firebaseConfig: FirebaseOptions;
+  ttsAPIKey: string;
 }
 
 let firebaseApp: FirebaseApp,
   firebaseAnalytics: Analytics,
   firebaseDatabase: Database,
   firebaseUser: UserCredential;
-export default function Host({ firebaseConfig }: HostProps) {
+export default function Host({ firebaseConfig, ttsAPIKey }: HostProps) {
   const [answers, setAnswers] = useState<Answers>();
   const [currentQuestion, setCurrentQuestion] = useState<Question>();
   const [players, setPlayers] = useState<Players>();
@@ -174,6 +176,12 @@ export default function Host({ firebaseConfig }: HostProps) {
         console.log("New question:", newQuestion.question);
         setCurrentQuestion(newQuestion);
         setAnswers({});
+        ttsRead(
+          ttsAPIKey,
+          `Question ${
+            questions.findIndex((q) => q.id === newQuestion.id) + 1
+          }: ${newQuestion.question}`
+        );
       }
     );
 

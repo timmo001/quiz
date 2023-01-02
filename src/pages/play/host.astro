@@ -2,10 +2,12 @@
 import { firebaseConfig } from "~/components/shared/firebase";
 import Host from "~/components/preact/Host";
 import Main from "~/components/astro/Main.astro";
+
+const ttsAPIKey = import.meta.env.GOOGLE_CLOUD_TTS_API_KEY;
 ---
 
 <Main>
   <section class="mt-4 container grid grid-cols-1 gap-4">
-    <Host client:load firebaseConfig={firebaseConfig} />
+    <Host client:load firebaseConfig={firebaseConfig} ttsAPIKey={ttsAPIKey} />
   </section>
 </Main>
