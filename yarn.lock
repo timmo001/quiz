@@ -1491,11 +1491,13 @@ astro-icon@0.8.0:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
-astro-robots-txt@0.3.12:
-  version "0.3.12"
-  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.3.12.tgz#c18df5e91d2243e39012e1b4457b6441d52d7bd3"
-  integrity sha512-ydVbhyzxhoCzVCn0eqUdqCMaADG+GOBYE2YGk2unQ4EpqNlvy4HIGOy/XiAHu/n46suXUkYuxHFIOVd3r1zJvA==
+astro-robots-txt@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/astro-robots-txt/-/astro-robots-txt-0.4.0.tgz#144aa8f466c5d60da4bbbae4e89fa2c8f488a46b"
+  integrity sha512-tzZUnSXNC5gtSaLvF/LGC0A6cxt7lW5J0tuuQfM84/Vj2/dIdsvxHUp1JI1APhdpwP6TvH05aJnJFnGHn/pZlQ==
   dependencies:
+    "@proload/core" "^0.3.3"
+    "@proload/plugin-tsm" "^0.2.1"
     deepmerge "^4.3.0"
     valid-filename "^4.0.0"
     zod "^3.20.6"
