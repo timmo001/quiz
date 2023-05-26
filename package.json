@@ -32,7 +32,7 @@
   "dependencies": {
     "@astrojs/preact": "^2.2.0",
     "@fontsource/inter": "5.0.1",
-    "firebase": "9.22.0",
+    "firebase": "9.22.1",
     "preact": "10.15.0",
     "qrcode-svg": "1.1.0",
     "uuid": "9.0.0"
