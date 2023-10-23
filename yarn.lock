@@ -1268,10 +1268,10 @@
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.10.3.tgz#c894a21e8c911830e36bbbba55903ccfbc7a7e25"
   integrity sha512-+ZplYUN3HOpgCfgInqgdDAbkGGVzES1cs32JJpeqoh87SkRobGXElJx+1GZSaDqzFL+bYiX18qEcBK76mYs8uA==
 
-"@fontsource/inter@5.0.14":
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.0.14.tgz#7e5795b4ef685974945a57dc5a582cc6e4994abf"
-  integrity sha512-5H+rWUemTnUrtF5Dov2zDq+RWDIoXCmSrupNIfI5x7udZnoUTNhr+k9sYxtNS22mIngUQHZUPexTMj0/7P0Ucg==
+"@fontsource/inter@5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.0.15.tgz#c01d160cd02bde1a4ce09f2c38b2063b66caf870"
+  integrity sha512-/IoWYEXl8lqJEx50JqNPT+bI4VNwxb/bg2oOfvG8PiEsDsmHRFvWBVHlohBNn1+QdBf+KbAjU/gb4vlGOSsVWw==
 
 "@grpc/grpc-js@~1.9.0":
   version "1.9.3"
