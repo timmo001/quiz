@@ -1529,11 +1529,6 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.6.1.tgz#45785b5caf83200a34a9867ba50d69560880c120"
   integrity sha512-0zfTlFAIhgz8V2G8STq8toAjsYYA6eci1hnXuyOTUFnymrtJwnS6uGKiv3v5UrPZkBlamLvrLV2iiaeqCKzb0A==
 
-"@skarab/detect-package-manager@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@skarab/detect-package-manager/-/detect-package-manager-1.0.0.tgz#ed426bc4a66d262f3e136e8a10e2e318ff76cf31"
-  integrity sha512-CuU1x6LgkJIF+H8FCnKijx6DbWVP1Y7kqPk88LSxNe0ulbe3BZ37qd3AaX3t5vnFZESLFMcjQd2dlPhdvWNSdQ==
-
 "@tailwindcss/forms@0.5.7":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.7.tgz#db5421f062a757b5f828bc9286ba626c6685e821"
@@ -1886,15 +1881,14 @@ astro-eleventy-img@0.6.2:
     datauri "^4.1.0"
     sharp "^0.31.2"
 
-astro-icon@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.0.0.tgz#3e0942baecbdc74ce414ec16fccff862f64b2563"
-  integrity sha512-Jkvlmg0DUMBbOmjYB3Pawdo4cgNq+uTpEGYIHnXiyrpMyv1RuSk56MKc6VmwKxRMY05d8mtPZjiVdutCvuROyA==
+astro-icon@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.0.1.tgz#22a050573bb72b9cd703a861d0f897b2f52e0e52"
+  integrity sha512-NtPyGeoSe/TJsGsea6T+8SDcW/wwZ7OIUq731DT7M6nw2B1p5BHuChiQI0bQvIIL79r48nMN7mQ8GBtwsDEucA==
   dependencies:
     "@iconify/tools" "^3.0.1"
     "@iconify/types" "^2.0.0"
     "@iconify/utils" "^2.1.5"
-    "@skarab/detect-package-manager" "^1.0.0"
 
 astro-robots-txt@1.0.0:
   version "1.0.0"
