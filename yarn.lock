@@ -1881,10 +1881,10 @@ astro-eleventy-img@0.6.2:
     datauri "^4.1.0"
     sharp "^0.31.2"
 
-astro-icon@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.0.1.tgz#22a050573bb72b9cd703a861d0f897b2f52e0e52"
-  integrity sha512-NtPyGeoSe/TJsGsea6T+8SDcW/wwZ7OIUq731DT7M6nw2B1p5BHuChiQI0bQvIIL79r48nMN7mQ8GBtwsDEucA==
+astro-icon@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.0.2.tgz#e4701f3fcfa548f6864b62d5588870e0b32edef9"
+  integrity sha512-MGgnjxHnI50bBWasBdt0pw/S9lWharfxhUv1sP2Vj1/KDaT/Cz35ZdlBgb4DKtfzQZREIJN2eQGqmVbvLq5p3w==
   dependencies:
     "@iconify/tools" "^3.0.1"
     "@iconify/types" "^2.0.0"
