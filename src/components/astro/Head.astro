@@ -1,5 +1,5 @@
 ---
-import "@fontsource/inter";
+import { AstroFont } from "astro-font";
 
 import "~/styles/index.css";
 
@@ -29,6 +29,20 @@ const {
 <meta property="og:image" content={image} />
 <meta property="og:url" content={site} />
 <meta name="twitter:card" content="summary_large_image" />
+
+<AstroFont
+  config={[
+    {
+      src: [],
+      name: "Inter",
+      preload: false,
+      display: "swap",
+      fallback: "sans-serif",
+      cssVariable: "font-inter",
+      googleFontsURL: 'https://fonts.googleapis.com/css2?family=Inter',
+    },
+  ]}
+/>
 
 <!-- initialize theme -->
 <script is:inline>
