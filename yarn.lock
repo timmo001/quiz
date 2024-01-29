@@ -1760,10 +1760,10 @@ astro-eleventy-img@0.6.2:
     datauri "^4.1.0"
     sharp "^0.31.2"
 
-astro-icon@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.0.2.tgz#e4701f3fcfa548f6864b62d5588870e0b32edef9"
-  integrity sha512-MGgnjxHnI50bBWasBdt0pw/S9lWharfxhUv1sP2Vj1/KDaT/Cz35ZdlBgb4DKtfzQZREIJN2eQGqmVbvLq5p3w==
+astro-icon@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.0.3.tgz#9acf9cc2c0c402cffff24daacc6e400a36973cb2"
+  integrity sha512-CgSodrhqVeZbeG6y9chx0W0eGFxyUINFncEhqb+Cn9jixrjqF7M0DS7q6UipEQ+TlirbdSSu7MkE9gxI1osqvA==
   dependencies:
     "@iconify/tools" "^3.0.1"
     "@iconify/types" "^2.0.0"

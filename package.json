@@ -19,7 +19,7 @@
     "@types/uuid": "9.0.8",
     "astro": "4.2.6",
     "astro-eleventy-img": "0.6.2",
-    "astro-icon": "1.0.2",
+    "astro-icon": "1.0.3",
     "astro-robots-txt": "1.0.0",
     "eslint": "8.56.0",
     "postcss": "8.4.33",
