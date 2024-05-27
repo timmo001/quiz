@@ -24,7 +24,7 @@
     "eslint": "9.3.0",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
-    "prettier-plugin-astro": "0.13.0",
+    "prettier-plugin-astro": "0.14.0",
     "rimraf": "5.0.7",
     "tailwindcss": "3.4.3",
     "tailwindcss-fluid-type": "2.0.6"
