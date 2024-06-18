@@ -161,13 +161,13 @@
     uvu "^0.5.0"
     vfile-message "^3.0.0"
 
-"@astrojs/preact@^3.4.0":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-3.4.0.tgz#72fd3ded5f058515e407b86af482f368b56633f9"
-  integrity sha512-QTv28aTzWtit3OaZXmqS+cYdUAWToSwsGt4SkWqD8vkD5QAmF3lPq3hPi1QpmzeHoS+w7VITWtTmgBkbOaphiQ==
+"@astrojs/preact@^3.5.0":
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-3.5.0.tgz#991cedad08434ee368d2ded0ee7d3b87951abb8e"
+  integrity sha512-/zjxQ4/TrTk68fpm+rVIPSiF15xpsvXA5RWIDBqv1LjJkPyhVsOQEKasZkdmfq3DWcyJw3V5QvNVrwmS31CtmA==
   dependencies:
-    "@babel/plugin-transform-react-jsx" "^7.24.6"
-    "@babel/plugin-transform-react-jsx-development" "^7.24.6"
+    "@babel/plugin-transform-react-jsx" "^7.24.7"
+    "@babel/plugin-transform-react-jsx-development" "^7.24.7"
     "@preact/preset-vite" "^2.8.2"
     "@preact/signals" "^1.2.3"
     babel-plugin-transform-hook-names "^1.0.2"
@@ -409,14 +409,14 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.24.7"
 
-"@babel/plugin-transform-react-jsx-development@^7.22.5", "@babel/plugin-transform-react-jsx-development@^7.24.6":
+"@babel/plugin-transform-react-jsx-development@^7.22.5", "@babel/plugin-transform-react-jsx-development@^7.24.7":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx-development/-/plugin-transform-react-jsx-development-7.24.7.tgz#eaee12f15a93f6496d852509a850085e6361470b"
   integrity sha512-QG9EnzoGn+Qar7rxuW+ZOsbWOt56FvvI93xInqsZDC5fsekx1AlIO4KIJ5M+D0p0SqSH156EpmZyXq630B8OlQ==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.24.7"
 
-"@babel/plugin-transform-react-jsx@^7.17.12", "@babel/plugin-transform-react-jsx@^7.22.15", "@babel/plugin-transform-react-jsx@^7.24.6", "@babel/plugin-transform-react-jsx@^7.24.7":
+"@babel/plugin-transform-react-jsx@^7.17.12", "@babel/plugin-transform-react-jsx@^7.22.15", "@babel/plugin-transform-react-jsx@^7.24.7":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-react-jsx/-/plugin-transform-react-jsx-7.24.7.tgz#17cd06b75a9f0e2bd076503400e7c4b99beedac4"
   integrity sha512-+Dj06GDZEFRYvclU6k4bme55GKBEWUmByM/eoKuqg4zTNQHiApWRhQph5fxQB2wAEFvRzL1tOEj1RJ19wJrhoA==
