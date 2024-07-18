@@ -30,7 +30,7 @@
     "tailwindcss-fluid-type": "2.0.6"
   },
   "dependencies": {
-    "@astrojs/preact": "^3.5.0",
+    "@astrojs/preact": "^3.5.1",
     "@fontsource/inter": "5.0.19",
     "firebase": "10.12.3",
     "preact": "10.22.1",
