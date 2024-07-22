@@ -1757,10 +1757,10 @@
   resolved "https://registry.yarnpkg.com/@types/parse5/-/parse5-6.0.3.tgz#705bb349e789efa06f43f128cef51240753424cb"
   integrity sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==
 
-"@types/qrcode-svg@1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@types/qrcode-svg/-/qrcode-svg-1.1.4.tgz#6ff6cb321c21f30ed8620709ed6ef6c929efe916"
-  integrity sha512-gh+atEBHXpU5iO72Tg4q03YdGKoY0zH1Yr4mGl+NSzFpyPuJcgurs8F3aRpH0Gs93GFuB1rDoQj6U4Xshn72PA==
+"@types/qrcode-svg@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@types/qrcode-svg/-/qrcode-svg-1.1.5.tgz#456364c32c596514012168dbc72688b0b727d592"
+  integrity sha512-GjkD+HB8S1wrIsf3skHDtcYBjzNhTxocMbX+wG166xDkaVOnLiMUla7bLjbwxo6mMvqqWQNP0Dk8nkIeizSmnw==
 
 "@types/resolve@^1.17.0":
   version "1.20.2"
