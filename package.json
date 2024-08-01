@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^3.5.1",
-    "@fontsource/inter": "5.0.19",
+    "@fontsource/inter": "5.0.20",
     "firebase": "10.12.4",
     "preact": "10.23.1",
     "qrcode-svg": "1.1.0",
