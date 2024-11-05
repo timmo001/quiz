@@ -1983,10 +1983,10 @@ astro-eleventy-img@0.6.2:
     datauri "^4.1.0"
     sharp "^0.31.2"
 
-astro-icon@1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.1.1.tgz#0a2e7c7f2f593e089edc7ff43e808789187ea21a"
-  integrity sha512-HKBesWk2Faw/0+klLX+epQVqdTfSzZz/9+5vxXUjTJaN/HnpDf608gRPgHh7ZtwBPNJMEFoU5GLegxoDcT56OQ==
+astro-icon@1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/astro-icon/-/astro-icon-1.1.2.tgz#4f7fdeb6ae15ce8bb27bad0b0c8f0c160e2d5510"
+  integrity sha512-2qAHBtZLYuFEIMP0Ck0edyLi5fQmJjwP2Qbv41f8L4KAJ2sra/dH7q5lCOn4q0DHVtS0w3tPG8UKQRits3UPcg==
   dependencies:
     "@iconify/tools" "^4.0.5"
     "@iconify/types" "^2.0.0"
