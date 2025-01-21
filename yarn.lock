@@ -157,10 +157,10 @@
     uvu "^0.5.0"
     vfile-message "^3.0.0"
 
-"@astrojs/preact@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.0.2.tgz#01a3fecdda4de78be1962029733c1b5bc5403b63"
-  integrity sha512-V26b1ouyjk1fhEu8mE1L0nV3d/18is/njhaP4IYXMGm+66Mf441WXINKDgOLrtQzbnFLkDUn1ZHGD4LDds6sxQ==
+"@astrojs/preact@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.0.3.tgz#fee442f4a0497bfb11b7b4f5a0e53398079b9408"
+  integrity sha512-f1DLCitWSThjBlFTmGAcagXNj/o74gzfO51ZKhQ6+ODMKOrV5hHNyCdqkfMtdJxkYProR1pSYapLH37satiUWQ==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.25.9"
     "@babel/plugin-transform-react-jsx-development" "^7.25.9"
@@ -168,7 +168,7 @@
     "@preact/signals" "^2.0.1"
     babel-plugin-transform-hook-names "^1.0.2"
     preact-render-to-string "^6.5.13"
-    vite "^6.0.7"
+    vite "^6.0.9"
 
 "@astrojs/prism@3.2.0":
   version "3.2.0"
@@ -7634,10 +7634,10 @@ vfile@^6.0.0, vfile@^6.0.3:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
 
-vite@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.7.tgz#f0f8c120733b04af52b4a1e3e7cb54eb851a799b"
-  integrity sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==
+vite@^6.0.7, vite@^6.0.9:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.10.tgz#48685694c36d8c8f87b93f3fd0de089d3930b361"
+  integrity sha512-MEszunEcMo6pFsfXN1GhCFQqnE25tWRH0MA4f0Q7uanACi4y1Us+ZGpTMnITwCTnYzB2b9cpmnelTlxgTBmaBA==
   dependencies:
     esbuild "^0.24.2"
     postcss "^8.4.49"
