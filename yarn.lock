@@ -193,10 +193,10 @@
     stream-replace-string "^2.0.0"
     zod "^3.23.8"
 
-"@astrojs/tailwind@5.1.5":
-  version "5.1.5"
-  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-5.1.5.tgz#d2e0bb18d5df661853772fb1aae288df1bb3d6f9"
-  integrity sha512-1diguZEau7FZ9vIjzE4BwavGdhD3+JkdS8zmibl1ene+EHgIU5hI0NMgRYG3yea+Niaf7cyMwjeWeLvzq/maxg==
+"@astrojs/tailwind@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-6.0.0.tgz#898f804c583d5570862cfdc96bc9688f3c9f0dce"
+  integrity sha512-GbEK2/h0nvY8i6g1GZT5ddHAgj71lQIf34/j7+jPLhUti3xDxKcWElApDe2jWvqAaKl2oKEh045ITSm8mU9BVQ==
   dependencies:
     autoprefixer "^10.4.20"
     postcss "^8.5.1"
