@@ -158,18 +158,18 @@
     uvu "^0.5.0"
     vfile-message "^3.0.0"
 
-"@astrojs/preact@^4.0.3":
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.0.3.tgz#fee442f4a0497bfb11b7b4f5a0e53398079b9408"
-  integrity sha512-f1DLCitWSThjBlFTmGAcagXNj/o74gzfO51ZKhQ6+ODMKOrV5hHNyCdqkfMtdJxkYProR1pSYapLH37satiUWQ==
+"@astrojs/preact@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.0.4.tgz#98fd4f037727ff46d1550b3d8a9512e3611d2650"
+  integrity sha512-XQjT/q1R/P8NxJqwpAaOEfaRiaXmBLgKesIQQn3iFdozdMPXJjej3R0hnvtWoIcYY8puHkOIOhAFK9vD+I+1Yg==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.25.9"
     "@babel/plugin-transform-react-jsx-development" "^7.25.9"
-    "@preact/preset-vite" "2.8.2"
+    "@preact/preset-vite" "^2.10.1"
     "@preact/signals" "^2.0.1"
     babel-plugin-transform-hook-names "^1.0.2"
     preact-render-to-string "^6.5.13"
-    vite "^6.0.9"
+    vite "^6.0.11"
 
 "@astrojs/prism@3.2.0":
   version "3.2.0"
@@ -1285,7 +1285,7 @@
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz#add4c98d341472a289190b424efbdb096991bb24"
   integrity sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==
 
-"@jridgewell/sourcemap-codec@^1.4.14", "@jridgewell/sourcemap-codec@^1.4.15":
+"@jridgewell/sourcemap-codec@^1.4.14":
   version "1.4.15"
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.15.tgz#d7c6e6755c78567a951e04ab52ef0fd26de59f32"
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
@@ -1364,10 +1364,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@preact/preset-vite@2.8.2":
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.8.2.tgz#8113a37c8f7dfa0156fe1e6811bdc2b7ea6a3490"
-  integrity sha512-m3tl+M8IO8jgiHnk+7LSTFl8axdPXloewi7iGVLdmCwf34XOzEUur0bZVewW4DUbUipFjTS2CXu27+5f/oexBA==
+"@preact/preset-vite@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.10.1.tgz#133292e50094626fce5dc982de1444516b1c3678"
+  integrity sha512-59lyGBXNfZIr5OOuBUB4/IB8AqF/ULbvYnyItgK/2BJnsGJqaeaJobRVtMp1129obHQuj8oZ/dVxB9inmH8Xig==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.22.15"
     "@babel/plugin-transform-react-jsx-development" "^7.22.5"
@@ -1376,11 +1376,7 @@
     babel-plugin-transform-hook-names "^1.0.2"
     debug "^4.3.4"
     kolorist "^1.8.0"
-    magic-string "0.30.5"
-    node-html-parser "^6.1.10"
-    resolve "^1.22.8"
-    source-map "^0.7.4"
-    stack-trace "^1.0.0-pre2"
+    vite-prerender-plugin "^0.5.3"
 
 "@preact/signals-core@^1.7.0":
   version "1.7.0"
@@ -4368,7 +4364,7 @@ kleur@^4.0.3, kleur@^4.1.4, kleur@^4.1.5:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
   integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
-kolorist@^1.8.0:
+kolorist@^1.6.0, kolorist@^1.8.0:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/kolorist/-/kolorist-1.8.0.tgz#edddbbbc7894bc13302cdf740af6374d4a04743c"
   integrity sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==
@@ -4478,13 +4474,6 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-magic-string@0.30.5:
-  version "0.30.5"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.5.tgz#1994d980bd1c8835dc6e78db7cbd4ae4f24746f9"
-  integrity sha512-7xlpfBaQaP/T6Vh8MO/EqXSW5En6INHEvEXQiuff7Gku0PWjU3uf6w/j9o7O+SpB5fOAkrI5HeoNgwjEO0pFsA==
-  dependencies:
-    "@jridgewell/sourcemap-codec" "^1.4.15"
-
 magic-string@^0.27.0:
   version "0.27.0"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.27.0.tgz#e4a3413b4bab6d98d2becffd48b4a257effdbbf3"
@@ -4492,7 +4481,7 @@ magic-string@^0.27.0:
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.13"
 
-magic-string@^0.30.17:
+magic-string@^0.30.17, magic-string@^0.30.6:
   version "0.30.17"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.30.17.tgz#450a449673d2460e5bbcfba9a61916a1714c7453"
   integrity sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==
@@ -5658,7 +5647,7 @@ node-fetch@^3.2.5:
     fetch-blob "^3.1.4"
     formdata-polyfill "^4.0.10"
 
-node-html-parser@^6.1.10:
+node-html-parser@^6.1.12:
   version "6.1.13"
   resolved "https://registry.yarnpkg.com/node-html-parser/-/node-html-parser-6.1.13.tgz#a1df799b83df5c6743fcd92740ba14682083b7e4"
   integrity sha512-qIsTMOY4C/dAa5Q5vsobRpOOvPfC4pB61UVW2uSwZNUp0QU/jCekTal1vMmbO0DgdHeLUJpv/ARmDqErVxA3Sg==
@@ -6848,6 +6837,13 @@ signal-exit@^4.0.1:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.0.2.tgz#ff55bb1d9ff2114c13b400688fa544ac63c36967"
   integrity sha512-MY2/qGx4enyjprQnFaZsHib3Yadh3IXyV2C321GY0pjGfVBu4un0uDJkwgdxqO+Rdx8JMT8IfJIRwbYVz3Ob3Q==
 
+simple-code-frame@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/simple-code-frame/-/simple-code-frame-1.3.0.tgz#11dd319656a09445639b9c26a0fcb7102c0de00e"
+  integrity sha512-MB4pQmETUBlNs62BBeRjIFGeuy/x6gGKh7+eRUemn1rCFhqo7K+4slPqsyizCbcbYLnaYqaoZ2FWsZ/jN06D8w==
+  dependencies:
+    kolorist "^1.6.0"
+
 simple-concat@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/simple-concat/-/simple-concat-1.0.1.tgz#f46976082ba35c2263f1c8ab5edfe26c41c9552f"
@@ -7640,7 +7636,18 @@ vfile@^6.0.0, vfile@^6.0.3:
     "@types/unist" "^3.0.0"
     vfile-message "^4.0.0"
 
-vite@^6.0.11, vite@^6.0.9:
+vite-prerender-plugin@^0.5.3:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/vite-prerender-plugin/-/vite-prerender-plugin-0.5.5.tgz#92eea79562e9df0a02df0bd915540ed433418523"
+  integrity sha512-WUXn08rPL8CkbEeLYQI/O/IAD2ggsy5Fp5tA5QMDOpiGi7J4vNBZW/gqYRmCd1ap3XdeobFCFBYEA5mqv39lAQ==
+  dependencies:
+    magic-string "^0.30.6"
+    node-html-parser "^6.1.12"
+    simple-code-frame "^1.3.0"
+    source-map "^0.7.4"
+    stack-trace "^1.0.0-pre2"
+
+vite@^6.0.11:
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.11.tgz#224497e93e940b34c3357c9ebf2ec20803091ed8"
   integrity sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==
