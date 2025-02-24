@@ -21,7 +21,7 @@
     "astro-eleventy-img": "0.6.2",
     "astro-icon": "1.1.5",
     "astro-robots-txt": "1.0.0",
-    "eslint": "9.20.1",
+    "eslint": "9.21.0",
     "postcss": "8.5.3",
     "prettier": "3.5.1",
     "prettier-plugin-astro": "0.14.1",
