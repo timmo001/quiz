@@ -33,7 +33,7 @@
     "@astrojs/preact": "^4.0.5",
     "@fontsource/inter": "5.1.1",
     "firebase": "11.4.0",
-    "preact": "10.26.2",
+    "preact": "10.26.3",
     "qrcode-svg": "1.1.0",
     "uuid": "11.1.0"
   }
