@@ -2124,10 +2124,10 @@ astro@1.6.15:
     yargs-parser "^21.0.1"
     zod "^3.17.3"
 
-astro@5.7.5:
-  version "5.7.5"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.7.5.tgz#ecea1cabf2909cd791bfc2d0616a0e5b045cb3af"
-  integrity sha512-c59YuYiXyWWnUMOBlDczrjqKzF0dJQP20EP9vqDggcyKm//tEt9iJHNwoYq4r3UeO9UJCwlGK8FwaGTAwwF3IA==
+astro@5.7.8:
+  version "5.7.8"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.7.8.tgz#e9eed90c3ba29146dc88639a59707fabcd549ab7"
+  integrity sha512-82ku6+wOGXP5c5+YOkBzEGJ/k8/GVSeN0xD/TNUrPf5nvWpGGpngxtUAwuruKF6wIxRC1/SwlUVCs/4QT98iZQ==
   dependencies:
     "@astrojs/compiler" "^2.11.0"
     "@astrojs/internal-helpers" "0.6.1"
@@ -2176,7 +2176,7 @@ astro@5.7.5:
     tinyglobby "^0.2.12"
     tsconfck "^3.1.5"
     ultrahtml "^1.6.0"
-    unifont "~0.2.0"
+    unifont "~0.4.1"
     unist-util-visit "^5.0.0"
     unstorage "^1.15.0"
     vfile "^6.0.3"
@@ -7541,10 +7541,10 @@ unified@^11.0.5:
     trough "^2.0.0"
     vfile "^6.0.0"
 
-unifont@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/unifont/-/unifont-0.2.0.tgz#6a20188eec5e5bfe54ba511f0c03210365feccfd"
-  integrity sha512-RoF14/tOhLvDa7R5K6A3PjsfJVFKvadvRpWjfV1ttabUe9704P1ie9z1ABLWEts/8SxrBVePav/XhgeFNltpsw==
+unifont@~0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/unifont/-/unifont-0.4.1.tgz#b434984e11c8490929daa6a70c84c95d5459a004"
+  integrity sha512-zKSY9qO8svWYns+FGKjyVdLvpGPwqmsCjeJLN1xndMiqxHWBAhoWDMYMG960MxeV48clBmG+fDP59dHY1VoZvg==
   dependencies:
     css-tree "^3.0.0"
     ohash "^2.0.0"
