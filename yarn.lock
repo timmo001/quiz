@@ -159,15 +159,15 @@
     uvu "^0.5.0"
     vfile-message "^3.0.0"
 
-"@astrojs/preact@^4.0.10":
-  version "4.0.10"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.0.10.tgz#ccab18e53d62cbdda36a653fa3a332ff1054c0d1"
-  integrity sha512-QLN9w/qhVSaF5xropGe8Otzx4Yb1rZnmj6m3IzDemrCXf2xDALLPNNno4UK7Zs86iKEu5240B8cEWdnqsZfXLw==
+"@astrojs/preact@^4.0.11":
+  version "4.0.11"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.0.11.tgz#17b79d1724735eb26ee1f9a552a8ca3dd7765301"
+  integrity sha512-BEx4sIWCojMJM3RC6wXzPvS5URNKMeQitoW+Uy8uqZ6nM5Me3WE984yntMZTlq8hn3AE278TfUJn2dZhGtSuYA==
   dependencies:
     "@preact/preset-vite" "^2.10.1"
-    "@preact/signals" "^2.0.2"
+    "@preact/signals" "^2.0.4"
     preact-render-to-string "^6.5.13"
-    vite "^6.2.6"
+    vite "^6.3.4"
 
 "@astrojs/prism@3.2.0":
   version "3.2.0"
@@ -1405,10 +1405,10 @@
   resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.7.0.tgz#3ffb886bfac80ff14dac365dd09184a289a2e64c"
   integrity sha512-bEZLgmJGSBVP5PUPDowhPW3bVdMmp9Tr5OEl+SQK+8Tv9T7UsIfyN905cfkmmeqw8z4xp8T6zrl4M1uj9+HAfg==
 
-"@preact/signals@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-2.0.2.tgz#69754650c7c6870ac6120e27e110ec5f7ef508ec"
-  integrity sha512-Qvu30QoIswaWXmFQZwzBc1CdyB+biIZCpHxoYcNplRTySLkCH6f7RMlHtwb0tmkfQJ+WBkUqR7ajPjdsc1Uq+w==
+"@preact/signals@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-2.0.4.tgz#8c994da97efd1cf490e4abef58b80d6fccc3ccfb"
+  integrity sha512-9241aGnIv7y0IGzaq2vkBMe8/0jGnnmEEUeFmAoTWsaj8q/BW2PVekL8nHVJcy69bBww6rwEy3A1tc6yPE0sJA==
   dependencies:
     "@preact/signals-core" "^1.7.0"
 
@@ -7832,7 +7832,7 @@ vite-prerender-plugin@^0.5.3:
     source-map "^0.7.4"
     stack-trace "^1.0.0-pre2"
 
-vite@^6.2.6, vite@^6.3.4:
+vite@^6.3.4:
   version "6.3.4"
   resolved "https://registry.yarnpkg.com/vite/-/vite-6.3.4.tgz#d441a72c7cd9a93b719bb851250a4e6c119c9cff"
   integrity sha512-BiReIiMS2fyFqbqNT/Qqt4CVITDU9M9vE+DKcVAsB+ZV0wvTKd+3hMbkpxz1b+NmEDMegpVbisKiAZOnvO92Sw==
