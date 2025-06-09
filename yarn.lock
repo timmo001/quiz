@@ -59,10 +59,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.31.3.tgz#31fbc91119e939c26d51ab92e7bc0af5c8f801cb"
   integrity sha512-WbA05QH5xkdaJ3XtzDuYOjtqsip2InW5rk156sSdaHs5qN2NroUHbzWZthHJwmNAAjQSGXVIj+O6jQj81zzX/Q==
 
-"@astrojs/compiler@^2.12.0", "@astrojs/compiler@^2.9.1":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-2.12.0.tgz#36fa2b6a5214763a995775699b4d18f63de42de6"
-  integrity sha512-7bCjW6tVDpUurQLeKBUN9tZ5kSv5qYrGmcn0sG0IwacL7isR2ZbyyA3AdZ4uxsuUFOS2SlgReTH7wkxO6zpqWA==
+"@astrojs/compiler@^2.12.1", "@astrojs/compiler@^2.9.1":
+  version "2.12.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-2.12.2.tgz#5913b6ec7efffebdfb37fae9a50122802ae08c64"
+  integrity sha512-w2zfvhjNCkNMmMMOn5b0J8+OmUaBL1o40ipMvqcG6NRpdC+lKxmTi48DT8Xw0SzJ3AfmeFLB45zXZXtmbsjcgw==
 
 "@astrojs/internal-helpers@0.6.1":
   version "0.6.1"
@@ -2136,12 +2136,12 @@ astro@1.6.15:
     yargs-parser "^21.0.1"
     zod "^3.17.3"
 
-astro@5.9.0:
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.9.0.tgz#33ba0c3ed0f16ff291472942451816ab70831cec"
-  integrity sha512-AHF7oZDBQRwggHUG0bwBhRQjrDD+vJpCtPd0/GVxDB1hGRV0SQuFWS0UHX5bYczIqFcao1z9o9o0r2rQtHrTMg==
+astro@5.9.1:
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.9.1.tgz#8fa74fadac97f149a15a59ea7e8a74faf5174a2c"
+  integrity sha512-wxoJcTbuDZNFSv6EaL0PAlrp0Wx6VnOAULCXvy0scsV70oWMeUkdxuBxfO54JxO5Qgyvwj9h99y6E0elqOpGtA==
   dependencies:
-    "@astrojs/compiler" "^2.12.0"
+    "@astrojs/compiler" "^2.12.1"
     "@astrojs/internal-helpers" "0.6.1"
     "@astrojs/markdown-remark" "6.3.2"
     "@astrojs/telemetry" "3.3.0"
