@@ -159,15 +159,15 @@
     uvu "^0.5.0"
     vfile-message "^3.0.0"
 
-"@astrojs/preact@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.1.0.tgz#bfc55b92090439d3fa9aa56ce9fa6a03bf38f83d"
-  integrity sha512-yXs63ndFHhoKHEZsvYbfsmmZt15QPEziW/twF4uBLAPWjSlZ1Fx/lG+NFMQpGy/CmvI0WkrhyPa9pkJp5ZaVmQ==
+"@astrojs/preact@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.1.1.tgz#83676f4c1ee2d3fb00660164a1a566569622c9cb"
+  integrity sha512-UyUHtZ6uZEghqR5K6ri6YdczYTRjXDw3n9xzBXXtsl2xZ8dj2uVN4P6qrLo5nlON5lEkRCGsn4mO4utuyAB/KA==
   dependencies:
-    "@preact/preset-vite" "^2.10.1"
-    "@preact/signals" "^2.0.4"
-    preact-render-to-string "^6.5.13"
-    vite "^6.3.5"
+    "@preact/preset-vite" "^2.10.2"
+    "@preact/signals" "^2.3.1"
+    preact-render-to-string "^6.6.1"
+    vite "^6.3.6"
 
 "@astrojs/prism@3.3.0":
   version "3.3.0"
@@ -1386,10 +1386,10 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@preact/preset-vite@^2.10.1":
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.10.1.tgz#133292e50094626fce5dc982de1444516b1c3678"
-  integrity sha512-59lyGBXNfZIr5OOuBUB4/IB8AqF/ULbvYnyItgK/2BJnsGJqaeaJobRVtMp1129obHQuj8oZ/dVxB9inmH8Xig==
+"@preact/preset-vite@^2.10.2":
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/@preact/preset-vite/-/preset-vite-2.10.2.tgz#7fdf94e523bab2588054858c3ecd4d253fdbcea9"
+  integrity sha512-K9wHlJOtkE+cGqlyQ5v9kL3Ge0Ql4LlIZjkUTL+1zf3nNdF88F9UZN6VTV8jdzBX9Fl7WSzeNMSDG7qECPmSmg==
   dependencies:
     "@babel/plugin-transform-react-jsx" "^7.22.15"
     "@babel/plugin-transform-react-jsx-development" "^7.22.5"
@@ -1397,20 +1397,20 @@
     "@rollup/pluginutils" "^4.1.1"
     babel-plugin-transform-hook-names "^1.0.2"
     debug "^4.3.4"
-    kolorist "^1.8.0"
+    picocolors "^1.1.1"
     vite-prerender-plugin "^0.5.3"
 
-"@preact/signals-core@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.7.0.tgz#3ffb886bfac80ff14dac365dd09184a289a2e64c"
-  integrity sha512-bEZLgmJGSBVP5PUPDowhPW3bVdMmp9Tr5OEl+SQK+8Tv9T7UsIfyN905cfkmmeqw8z4xp8T6zrl4M1uj9+HAfg==
+"@preact/signals-core@^1.12.0":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@preact/signals-core/-/signals-core-1.12.1.tgz#714b489bb35d9874cc44b35706a9dc27da8d21c4"
+  integrity sha512-BwbTXpj+9QutoZLQvbttRg5x3l5468qaV2kufh+51yha1c53ep5dY4kTuZR35+3pAZxpfQerGJiQqg34ZNZ6uA==
 
-"@preact/signals@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-2.0.4.tgz#8c994da97efd1cf490e4abef58b80d6fccc3ccfb"
-  integrity sha512-9241aGnIv7y0IGzaq2vkBMe8/0jGnnmEEUeFmAoTWsaj8q/BW2PVekL8nHVJcy69bBww6rwEy3A1tc6yPE0sJA==
+"@preact/signals@^2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@preact/signals/-/signals-2.3.1.tgz#91fde3ebf02794afa8d463fe1ccd5fda9509fe1d"
+  integrity sha512-nyuRIGmcwM/HjvFHhN2xUWfyla9D4llHt+prWoxjQfD6b5prO7CFPlG/xjJkP31Oic4KQXfH9SIhJFP9cy4lmg==
   dependencies:
-    "@preact/signals-core" "^1.7.0"
+    "@preact/signals-core" "^1.12.0"
 
 "@prefresh/babel-plugin@0.5.1":
   version "0.5.1"
@@ -6362,10 +6362,10 @@ postcss@8.5.6, postcss@^8.4.14, postcss@^8.4.18, postcss@^8.4.47, postcss@^8.5.3
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
-preact-render-to-string@^6.5.13:
-  version "6.5.13"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-6.5.13.tgz#cb9eb4a0df3576e7bfd78ef5f3d3bd57480e79ee"
-  integrity sha512-iGPd+hKPMFKsfpR2vL4kJ6ZPcFIoWZEcBf0Dpm3zOpdVvj77aY8RlLiQji5OMrngEyaxGogeakTb54uS2FvA6w==
+preact-render-to-string@^6.6.1:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-6.6.1.tgz#a85c7116cce6a3a5acf6cc17ceeeb2fdbf96a8ea"
+  integrity sha512-IIMfXRjmbSP9QmG18WJLQa4Z4yx3J0VC9QN5q9z2XYlWSzFlJ+bSm/AyLyyV/YFwjof1OXFX2Mz6Ao60LXudJg==
 
 preact@10.27.1:
   version "10.27.1"
@@ -7960,7 +7960,7 @@ vite-prerender-plugin@^0.5.3:
     source-map "^0.7.4"
     stack-trace "^1.0.0-pre2"
 
-vite@^6.3.5, vite@^6.3.6:
+vite@^6.3.6:
   version "6.3.6"
   resolved "https://registry.yarnpkg.com/vite/-/vite-6.3.6.tgz#69a976b64930750d40219fbc68c5200874d315c1"
   integrity sha512-0msEVHJEScQbhkbVTb/4iHZdJ6SXp/AvxL2sjwYQFfBqleHtnCqv1J3sa9zbWz/6kW1m9Tfzn92vW+kZ1WV6QA==
