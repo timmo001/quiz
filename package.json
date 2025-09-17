@@ -16,7 +16,7 @@
     "@astrojs/tailwind": "6.0.2",
     "@tailwindcss/forms": "0.5.10",
     "@types/qrcode-svg": "1.1.5",
-    "@types/uuid": "10.0.0",
+    "@types/uuid": "11.0.0",
     "astro": "5.13.8",
     "astro-eleventy-img": "0.6.2",
     "astro-icon": "1.1.5",
