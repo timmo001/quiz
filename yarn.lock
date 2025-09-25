@@ -2155,10 +2155,10 @@ astro@1.6.15:
     yargs-parser "^21.0.1"
     zod "^3.17.3"
 
-astro@5.13.10:
-  version "5.13.10"
-  resolved "https://registry.yarnpkg.com/astro/-/astro-5.13.10.tgz#85d714e1f5d0da679a7c5efc9223d79318b1425a"
-  integrity sha512-PgIrIYvrR7fCoSPPt1sGlpoYK/FNil1BwKazND1DyaZC7SbWLi9hdIHM3ApdrL2SWK7oiADRPw7cTn80UyDWqA==
+astro@5.13.11:
+  version "5.13.11"
+  resolved "https://registry.yarnpkg.com/astro/-/astro-5.13.11.tgz#c2556af8bf91e500ea041da3d192a99e29ff4d44"
+  integrity sha512-qKB+95GtyJSwVn5TDi31FTIcsohzA/nLhyATWn5VWqok1VLzZvm/1KHCk4tNElSrAQ5BisxUIMZWTh+B4X2JvQ==
   dependencies:
     "@astrojs/compiler" "^2.12.2"
     "@astrojs/internal-helpers" "0.7.3"
