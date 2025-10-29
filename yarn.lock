@@ -159,15 +159,15 @@
     uvu "^0.5.0"
     vfile-message "^3.0.0"
 
-"@astrojs/preact@^4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.1.1.tgz#83676f4c1ee2d3fb00660164a1a566569622c9cb"
-  integrity sha512-UyUHtZ6uZEghqR5K6ri6YdczYTRjXDw3n9xzBXXtsl2xZ8dj2uVN4P6qrLo5nlON5lEkRCGsn4mO4utuyAB/KA==
+"@astrojs/preact@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/preact/-/preact-4.1.2.tgz#a68ff619ebaac6eab0a1af0b57560d0f25704ff8"
+  integrity sha512-WTi6or3F7uTuwod6F8F6UizJ0sa4XDBxSthTZgVp/p95Nv34CYFmLUscCD/HM1e8qcxhTtkI+1uIlrEEPTk9CA==
   dependencies:
     "@preact/preset-vite" "^2.10.2"
     "@preact/signals" "^2.3.1"
     preact-render-to-string "^6.6.1"
-    vite "^6.3.6"
+    vite "^6.4.1"
 
 "@astrojs/prism@3.3.0":
   version "3.3.0"
@@ -7968,10 +7968,10 @@ vite-prerender-plugin@^0.5.3:
     source-map "^0.7.4"
     stack-trace "^1.0.0-pre2"
 
-vite@^6.3.6:
-  version "6.3.6"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.3.6.tgz#69a976b64930750d40219fbc68c5200874d315c1"
-  integrity sha512-0msEVHJEScQbhkbVTb/4iHZdJ6SXp/AvxL2sjwYQFfBqleHtnCqv1J3sa9zbWz/6kW1m9Tfzn92vW+kZ1WV6QA==
+vite@^6.3.6, vite@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-6.4.1.tgz#afbe14518cdd6887e240a4b0221ab6d0ce733f96"
+  integrity sha512-+Oxm7q9hDoLMyJOYfUYBuHQo+dkAloi33apOPP56pzj+vsdJDzr+j1NISE5pyaAuKL4A3UD34qd0lx5+kfKp2g==
   dependencies:
     esbuild "^0.25.0"
     fdir "^6.4.4"
